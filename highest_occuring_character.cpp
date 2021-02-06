@@ -1,25 +1,21 @@
 #include<iostream>
-#include<string>
+#include<cstring>
 using namespace std;
 int main(){
-string str;
-cin>>str;
-int len=str.length();
-int COUNT[256]={0};
-/*int len=arr.length();*/
-for(int i=0;str[i]!='\0';i++){
-    for(int j=len-1;j>=0;j--){
-        if(str[i]==str[j]){
-            COUNT++;
-        }
-
+    char input[100];
+    int Max=0;
+    char result;
+    cin.getline(input,100);
+    int COUNT[256]={0};
+    int len=strlen(input);
+    for(int i=0;i<len;i++){
+        COUNT[input[i]]++;
     }
-
-}
-
-
-
-
-
-
+    for(int i=0;i<len;i++){
+        if(COUNT[input[i]]>Max){
+            Max=COUNT[input[i]];
+            result=input[i];
+        }
+    }
+    cout<<result;
 }
